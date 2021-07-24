@@ -33,12 +33,17 @@ async def echo(request: Request, response: Response, data=Body(...)):
 
     event_type = payload.get("event.type")
     channel_id = payload.get("event.channel")
+    thread_ts = payload.get("event.thread_ts")
 
     if event_type == "app_mention":
         send_message_payload = {
             "channel": channel_id,
             "text": "Pinging back in the channel"
         }
+
+        if thread_ts is not None:
+            send_message_payload["thread_ts"] = thread_ts
+            send_message_payload["text"] = "Replying back in a thread"
 
         headers = {
             "Authorization": f"Bearer {BOT_TOKEN}"
