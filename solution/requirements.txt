@@ -2,3 +2,4 @@ fastapi==0.67.0
 uvicorn==0.14.0
 requests==2.26.0
 python-benedict==0.24.0
+python-dotenv==0.18.0

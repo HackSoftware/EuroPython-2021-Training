@@ -1,10 +1,21 @@
 from pprint import pprint
 
+import requests
+
 from benedict import benedict
+
+from dotenv import dotenv_values
 
 from fastapi import Body, FastAPI, Request, Response
 
+config = dotenv_values(".env")
+
 app = FastAPI()
+
+
+# This token can be obtained from the `OAuth Tokens for Your Workspace` section
+# In `OAuth & Permissions` in the bot settings
+BOT_TOKEN = config["BOT_TOKEN"]
 
 
 @app.post("/echo")
@@ -24,8 +35,22 @@ async def echo(request: Request, response: Response, data=Body(...)):
     channel_id = payload.get("event.channel")
 
     if event_type == "app_mention":
-        # Send the message here
-        print(channel_id)
+        send_message_payload = {
+            "channel": channel_id,
+            "text": "Pinging back in the channel"
+        }
+
+        headers = {
+            "Authorization": f"Bearer {BOT_TOKEN}"
+        }
+
+        response = requests.post(
+            "https://slack.com/api/chat.postMessage",
+            headers=headers,
+            json=send_message_payload
+        )
+        # We do that to debug any incoming errors from Slack
+        pprint(response.text)
 
     return {
         "data": data,
