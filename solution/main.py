@@ -1,5 +1,7 @@
 from pprint import pprint
 
+from benedict import benedict
+
 from fastapi import Body, FastAPI, Request, Response
 
 app = FastAPI()
@@ -15,6 +17,15 @@ async def echo(request: Request, response: Response, data=Body(...)):
     # This will give us `data.event.channel`, which is the channe id,
     # So we can post back a message
     pprint(data)
+
+    payload = benedict(data)
+
+    event_type = payload.get("event.type")
+    channel_id = payload.get("event.channel")
+
+    if event_type == "app_mention":
+        # Send the message here
+        print(channel_id)
 
     return {
         "data": data,
