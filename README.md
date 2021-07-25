@@ -3,6 +3,8 @@
 This is the repository with materials for the [Building a practical Slack bot with Python & FastAPI
 ](https://ep2021.europython.eu/talks/9xzPSHe-building-a-practical-slack-bot-with-python-fastapi-training/) training.
 
+[Slides can be found here](https://docs.google.com/presentation/d/1h3mHULQQrtyvmiTPuneqhpEH3l9yzpLIgL-r_bUCHSg/edit?usp=sharing)
+
 ## Overview
 
 ![Slack Chat Bot@2x](https://user-images.githubusercontent.com/387867/126901049-4a965bad-41b4-4168-8ba7-05cc4322dee3.png)
