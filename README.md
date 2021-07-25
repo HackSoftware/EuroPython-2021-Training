@@ -232,6 +232,7 @@ Now, it's time for our tasks.
 
 1. Whenever someone mentions our bot, we want to reply in the channel with a message.
 1. Whenever someone mentions our bot **in a thread**, we want to reply in the same thread with a message.
+1. **[BONUS TASK]** Whenever someone mentions our bot, start a new thread by replying to that user.
 
 In order to do that, we want to be making HTTP calls to the Slack API via `requests`, so we need to do:
 
