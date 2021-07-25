@@ -3,6 +3,10 @@
 This is the repository with materials for the [Building a practical Slack bot with Python & FastAPI
 ](https://ep2021.europython.eu/talks/9xzPSHe-building-a-practical-slack-bot-with-python-fastapi-training/) training.
 
+## Overview
+
+![Slack Chat Bot@2x](https://user-images.githubusercontent.com/387867/126901049-4a965bad-41b4-4168-8ba7-05cc4322dee3.png)
+
 ## Step 0 - OS setup
 
 This training is using the following OS tools:
@@ -244,6 +248,20 @@ Extracted documentation links to help you navigate to the proper stuff to look a
 1. [Sending messages](https://api.slack.com/messaging/sending)
 1. [Retrieving individual messages](https://api.slack.com/messaging/retrieving#individual_messages)
 
+
+### Hints
+
+Making a call to Slack requires obtaining `Bot User OAuth Token` from the settings page:
+
+![europython](https://user-images.githubusercontent.com/387867/126901159-808b77db-04f2-4b3d-85d0-e6a851155959.png)
+
+Since this is a secret, in order to manage secrets for our app, we recommend using `.env` file and <https://github.com/theskumar/python-dotenv> for parsing it:
+
+```python
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")  # config = {"USER": "foo", "EMAIL": "foo@example.org"}
+```
 
 ## Step 8 - Validate Slack requests
 
