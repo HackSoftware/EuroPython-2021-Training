@@ -276,12 +276,15 @@ Everything is great, but our API is public, meaning anyone can call it and start
 
 1. [Verifying requests from Slack](https://api.slack.com/authentication/verifying-requests-from-slack)
 
+
 ## Step 9 - Wrapping it up and further references
 
 That's about it.
 
 Materials for further references:
 
+1. Since we are using FastAPI with `async`, you can go & replace `requests` with something that's async, like <https://docs.aiohttp.org/en/stable/>
 1. There's an offical [Python Slack SDK](https://github.com/slackapi/python-slack-sdk) that you can use.
 1. You can also use [`bolt-python`](https://github.com/slackapi/bolt-python) which is a framework for building Slack apps.
 1. [The official documentation, of course](https://api.slack.com/)
+
